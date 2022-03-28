@@ -180,20 +180,14 @@ if ns==1
         cscaled      = round(1.0 + (cbuckets - 1.0) * (colorvals - cmin)/(cmax-cmin));
         sizes        = size(colorvals);
         n_vert       = sizes(1);
-        fileID = fopen('new_obj.obj','w');
         for i = 1:n_vert
             c_all   = cmap(cscaled(i),:) ;
             c1      = c_all(1);
             c2      = c_all(2);
             c3      = c_all(3);
-            fprintf(fileID,'v %f %f %f %f %f %f \n', vertex2(i,1), vertex2(i,2), vertex2(i,3), c1, c2, c3);
+            fprintf('v %f %f %f %f %f %f \n', vertex2(i,1), vertex2(i,2), vertex2(i,3), c1, c2, c3);
         end
-        sizes       = size(facesvals);
-        n_face      = sizes(1)
-        for i = 1:n_face
-            fprintf(fileID,'f %d %d %d \n', facesvals(i,1),facesvals(i,2), facesvals(i,3));
-        end
-        fclose(fileID);
+        sizes       = 
     end
     
     
